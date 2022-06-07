@@ -121,9 +121,24 @@ Return the words of the original song that Polycarpus used to make a dubstep rem
 
 
 const songDecoder = (remixSong) => {
-  return console.log(remixSong.replaceAll('WUB', ' '))
+  return console.log('first solution:',remixSong.replaceAll('WUB', ' ').trim())
    
     
 } 
 
 songDecoder("WUBWEWUBAREWUBWUBTHEWUBCHAMPIONSWUBMYWUBFRIENDSWUB")
+
+//solution two, better solution
+const songRegex = /(WUB)+/g;
+
+const songDecoderB = (remixSong) => {
+    const originalSong =  remixSong.replace(songRegex, ' ').trim()
+    
+    //remove all whitespaces at start and end of string unsing String.trim()
+    console.log(originalSong)
+    return originalSong
+     
+      
+  } 
+  
+  songDecoderB("WUBWEWUBAREWUBWUBTHEWUBCHAMPIONSWUBMYWUBFRIENDSWUB")
