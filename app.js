@@ -64,3 +64,25 @@ function sumNumbers(arr){
 }
 
 console.log(sumNumbers([2,45,67,89,97]))
+
+//Algorithm exercises
+
+//1) Categorize New Members Application
+// The Western Subburbs Croquet club has two categories of memberships.Seior and open.They will like your help with an applicatioin that ill tesll prosperctive members which category they will be placed.
+//   To be a openOrSenior, a member must be at least 55years onload, and have a handicap greater than 7.Handicaps range from -2 to +26. The better the player the lower the handicap.
+
+// input [[18, 20], [45, 2], [61, 12],[37, 6],[21, 21],[78, 9]];
+          //>=55 >7
+//output ['open', 'open', 'senior','open', 'open', 'senior']
+
+function openOrSenior(data){
+return data.map((info) =>{
+    if(info[0] >= 55 && info[1] > 7){
+        return 'Senior'
+    }else{
+        return 'Open';
+    }
+})
+}
+
+console.log(openOrSenior([[18, 20], [45, 2], [61, 12],[37, 6],[21, 21],[78, 9]]))
