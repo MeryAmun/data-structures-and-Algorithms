@@ -85,4 +85,45 @@ return data.map((info) =>{
 })
 }
 
+//soluti0n 2; Using array destructuring and Tenary Operators
+
+function openOrSeniorB(data){
+return data.map(([age, handicap]) =>
+       ( age >= 55 && handicap > 7) ? 'Senior' : 'Open'
+           
+)
+ }
 console.log(openOrSenior([[18, 20], [45, 2], [61, 12],[37, 6],[21, 21],[78, 9]]))
+console.log(openOrSeniorB([[18, 20], [45, 2], [61, 12],[37, 6],[21, 21],[78, 9]]))
+
+
+
+//exercise two
+
+/*Porlycapus works as a DJ in the best Berland nightclub,and he often uses dubstep music in his performance.Recently he has decide to take a couple of old songs and make a dubstep remixSong from them.Berland
+
+Lets assume that a song consists of some number of words
+(that dont contain WUB). to make a dubstep remixSong of this song, Polycarpus inserts a certain number of words "WUB" before the first word of the song(the number maybe zero), after the last word (the number may be zero) and between words(at least one between any pair of neigbouring words), and then the boy glues together all the words "WUB", in one string and plays the song at the club.
+
+For example, a song with words "I AM X" can transform into a dubstep remixSong as "WUBWUBIWUBAMWUBWUBX" and cannot translform to "WUBWUBIAMWUBX"
+Recently Johnny has heard Polycarpus new dubstep track, but since he isnt into modern music, he decided to find out what was the initial song that Polycarpus remixSonged.Help Johhny restore the original song
+
+Input
+The input consist of a single non-empty string cobnsisting of only uppercase English letters and the strings length doesnt exceed 200 characters
+
+Output
+
+Return the words of the original song that Polycarpus used to make a dubstep remixSong. Separate the words with a space
+
+*/
+
+//solution one
+
+
+const songDecoder = (remixSong) => {
+  return console.log(remixSong.replaceAll('WUB', ' '))
+   
+    
+} 
+
+songDecoder("WUBWEWUBAREWUBWUBTHEWUBCHAMPIONSWUBMYWUBFRIENDSWUB")
