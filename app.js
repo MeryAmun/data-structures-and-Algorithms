@@ -142,3 +142,23 @@ const songDecoderB = (remixSong) => {
   } 
   
   songDecoderB("WUBWEWUBAREWUBWUBTHEWUBCHAMPIONSWUBMYWUBFRIENDSWUB")
+
+
+  /*
+   Excercise three
+   You are give a string of space divide numbers to fing the highest and lowest number
+   
+   */
+  //Solution one
+
+  let str1 = "1 9 -2 3 -4 5 8 6";
+  function highAndLow(str){
+let test;
+      let strArr = str.split(' ');
+      let l = strArr.length;
+      strArr.sort(function(a,b){ return a - b})
+
+     console.log(strArr[0],strArr[l - 1])
+  }
+
+  highAndLow(str1)
