@@ -162,3 +162,19 @@ let test;
   }
 
   highAndLow(str1)
+
+  /*
+  Exercise four
+  create a function that returns the sum of the two lowest positive numbers given an array of minimum four positive integers.No floats or non positive integers will be passed;
+   e.g [ 19, 5, 42,2 77]
+  
+  */
+
+   let ex = [ 19, 5, 42,2, 77]
+   let ex1 = [10, 343445353, 3453445, 3453545353453]
+   function sumTwoSmallestNumber(arr){
+       let testArr = arr.sort(function(a, b) {return a-b});
+       console.log(testArr[0] + testArr[1])
+
+   }
+   sumTwoSmallestNumber(ex1)
