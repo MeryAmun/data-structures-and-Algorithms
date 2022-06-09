@@ -235,3 +235,40 @@ let test;
        return console.log(numArr)
    }
    filterList(mixedArray);
+
+   /*
+   Exercise six
+
+   In this kata, you are required to, give a string, replace every letter with its position in the alphabet
+If anything in the text is not a letter, ignore it and dont return it
+
+
+e.g testStr = "The sunset sets at twelve o'clock."
+   */
+  //solution one
+  let alphaStr =  "The sunset sets at twelve o' clock.";
+let alphabet = ['a','b','c','d','e','f,g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+
+  function alphabetPosition(){
+      let alphaArr = alphaStr.split('')
+      let l = alphaArr.length;
+      let m = alphabet.length;
+      let newAlArr = [];
+      let numStr ;
+
+      //console.log(alphaArr)
+      for(let i = 0; i < l; i+1){
+          for(let j = 0; j < m; j++){
+if(alphaArr[i].toLowerCase() === alphabet[j]){
+   //console.log(alphabet.indexOf(alphabet[j]) + 1 )
+  // newAlArr.push(alphaArr[i].slice(0));
+   //console.log(newAlArr)
+   //newAlArr = alphaArr[i]
+   //console.log(typeof newAlArr)
+   console.log(alphabet[j].length)
+}
+          }
+      }
+
+  }
+  alphabetPosition("The sunset sets at twelve o'clock.")
