@@ -173,8 +173,65 @@ let test;
    let ex = [ 19, 5, 42,2, 77]
    let ex1 = [10, 343445353, 3453445, 3453545353453]
    function sumTwoSmallestNumber(arr){
+//to sort in descending order,
+// let testArr = arr.sort(function(a, b) {return b - a});
+
+       //sorts in ascending order
        let testArr = arr.sort(function(a, b) {return a-b});
-       console.log(testArr[0] + testArr[1])
+
+       //const [fisrtNumber, secondNumber] =  arr.sort(function(a, b) {return a-b});
+
+       //return firstNumber + secondNumber
+      return  console.log(testArr[0] + testArr[1])
 
    }
-   sumTwoSmallestNumber(ex1)
+   sumTwoSmallestNumber(ex)
+
+   //solution 2
+   function sumTwoSmallestNumber2(numbers){
+       const [a, b ] = numbers.sort((a, b) => a - b)
+       return a + b;
+   }
+
+   //third solution
+
+   function sumTwoSmallestNumber3(numbers){
+       let min = Number.MAX_SAFE_INTEGER;
+       let secondMin = Number.MAX_SAFE_INTEGER;
+     
+       let n;
+
+       for(i = 0; i < numbers.length; i++){
+           n = numbers[i];
+           if(n < min){
+               secondMin = min;
+               min = n;
+           }else if(n < secondMin){
+               secondMin = n
+           }
+       }
+       return console.log( min + secondMin)
+   }
+
+   sumTwoSmallestNumber3([10, 343445353, 3453445, 3453545353453])
+
+   /* 
+   Exercise five
+
+   Create a function that takes a array of non-negative integers and strings and returns a new list with the strings filtered out
+   */
+
+   let mixedArray = [ 12, 'see', '23', 34, 'ate', 56, 'gas'];
+
+   //solution one
+   function filterList(arr){
+       let numArr = []
+       let l = arr.length;
+       for(let i = 0; i < l; i++){
+           if(typeof arr[i] === 'number'){
+               numArr.push(arr[i])
+           }
+       }
+       return console.log(numArr)
+   }
+   filterList(mixedArray);
