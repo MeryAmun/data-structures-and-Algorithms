@@ -360,12 +360,12 @@ const watchList = [
     }
   ];
 
-
   const newWatchList = watchList.map(({Title, imdbRating}) => ( {Title , rating:imdbRating}
  
     ))
     console.log(newWatchList);
 
+ 
    /*
    Exercise seven
 
