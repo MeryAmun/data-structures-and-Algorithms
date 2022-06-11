@@ -367,9 +367,62 @@ const watchList = [
   ))
   ratings = newWatchList
   console.log(ratings);
- 
-   /*
-   Exercise seven
+  console.log(JSON.stringify(ratings));
+
+
+   /* 
+   
+   exercise seven
+
+   Write your own Array.prototype.myMap(), which should behave exactly like Array.prototype.map(). You should not use the built-in map method. The Array instance can be accessed in the myMap method using this.
+   */
+
+
+
+// The global variable
+const s = [23, 65, 98, 5];
+
+Array.prototype.myMap = function(callback) {
+  const newArray = [];
+  // Only change code below this line
+  for(let i = 0; i < this.length; i++){
+    newArray.push(callback(this[i]));
+  }
+
+  // Only change code above this line
+  return newArray;
+};
+
+const new_s = s.myMap(function(item) {
+  return item * 2;
+});
+
+/*
+
+filter calls a function on each element of an array and returns a new array containing only the elements for which that function returns true. In other words, it filters the array, based on the function passed to it. Like map, it does this without needing to modify the original array.
+
+The callback function accepts three arguments. The first argument is the current element being processed. The second is the index of that element and the third is the array upon which the filter method was called.
+
+See below for an example using the filter method on the users array to return a new array containing only the users under the age of 30. For simplicity, the example only uses the first argument of the callback.
+
+exercise eight
+
+using the watchList array above
+*/
+
+const mapList = watchList.map((movie) => (
+    {title:movie.Title, rating:movie.imdbRating})
+    )
+   
+   
+    const filteredList = mapList.filter(({rating}) => rating >= 8.0)
+   console.log(JSON.stringify(filteredList) )
+
+
+
+/* 
+
+ Exercise seven
 
    In this kata, you are required to, give a string, replace every letter with its position in the alphabet
 If anything in the text is not a letter, ignore it and dont return it
