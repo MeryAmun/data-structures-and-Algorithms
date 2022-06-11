@@ -487,10 +487,68 @@ function nonMutatingConcat(original, attach) {
 
 
 
+/* 
+Use the reduce Method to Analyze Data
+Array.prototype.reduce(), or simply reduce(), is the most general of all array operations in JavaScript. You can solve almost any array processing problem using the reduce method.
+
+The reduce method allows for more general forms of array processing, and it's possible to show that both filter and map can be derived as special applications of reduce. The reduce method iterates over each item in an array and returns a single value (i.e. string, number, object, array). This is achieved via a callback function that is called on each iteration.
+
+The callback function accepts four arguments. The first argument is known as the accumulator, which gets assigned the return value of the callback function from the previous iteration, the second is the current element being processed, the third is the index of that element and the fourth is the array upon which reduce is called.
+
+In addition to the callback function, reduce has an additional parameter which takes an initial value for the accumulator. If this second parameter is not used, then the first iteration is skipped and the second iteration gets passed the first element of the array as the accumulator.
+
+See below for an example using reduce on the users array to return the sum of all the users' ages. For simplicity, the example only uses the first and second arguments.
+
+array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+
+exercise ten 
+The variable watchList holds an array of objects with information on several movies. Use reduce to find the average IMDB rating of the movies directed by Christopher Nolan. Recall from prior challenges how to filter data and map over it to pull what you need. You may need to create other variables, and return the average rating from getRating function. Note that the rating values are saved as strings in the object and need to be converted into numbers before they are used in any mathematical operations.
+
+*/
+
+
+function getRating(watchList) {
+    // Only change code below this line
+    let averageRating = [];
+  const movies = watchList.filter((film) => film.Director === "Christopher Nolan" )
+  const christopher = movies.map((film) => Number(film.imdbRating))
+  console.log(christopher)
+  
+  
+  let lR = christopher.length;
+  
+  averageRating = christopher.reduce((sum, num) => sum + num ) / lR;
+  
+  
+    // Only change code above this line
+    return averageRating;
+  }
+  
+  console.log(getRating(watchList));
 
 
 
 
+
+
+  /* 
+  Complete the code for the squareList function using any combination of map(), filter(), and reduce(). The function should return a new array containing the squares of only the positive integers (decimal numbers are not integers) when an array of real numbers is passed to it. An example of an array of real numbers is [-3, 4.8, 5, 3, -3.2].
+
+Note: Your function should not use any kind of for or while loops or the forEach() function.
+  
+  
+  */
+
+const squareList = arr => {
+    // Only change code below this line
+   const positiveNums = arr.filter((num) => num > 0 && Number.isInteger(num) === true)
+   const squareArr = positiveNums.map((number) => Math.pow(number, 2)) 
+    return squareArr;
+    // Only change code above this line
+  };
+  
+  const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
+  console.log(squaredIntegers);
 
 /* 
 
