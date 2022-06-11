@@ -424,8 +424,10 @@ const mapList = watchList.map((movie) => (
 
 
 
-/**      
- * Implement the filter Method on a Prototype
+/**    
+ exercise ten
+
+Implement the filter Method on a Prototype
 You might learn a lot about the filter method if you implement your own version of it. It is recommended you use a for loop or Array.prototype.forEach().
 
 Write your own Array.prototype.myFilter(), which should behave exactly like Array.prototype.filter(). You should not use the built-in filter method. The Array instance can be accessed in the myFilter method using this.
@@ -455,12 +457,33 @@ const new_sFilter = sFilter.myFilter(function(item) {
 });
 
 
+/* 
+Return Part of an Array Using the slice Method
+The slice method returns a copy of certain elements of an array. It can take two arguments, the first gives the index of where to begin the slice, the second is the index for where to end the slice (and it's non-inclusive). If the arguments are not provided, the default is to start at the beginning of the array through the end, which is an easy way to make a copy of the entire array. The slice method does not mutate the original array, but returns a new one.
 
 
 
+*/
+const arr = ["Cat", "Dog", "Tiger", "Zebra"];
+const copyArr = arr.slice() //copies the entire array
+const newArray = arr.slice(1, 3); //copies index 1 and 2
+//newArray would have the value ["Dog", "Tiger"].
 
 
+/**Combine Two Arrays Using the concat Method
+Concatenation means to join items end to end. JavaScript offers the concat method for both strings and arrays that work in the same way. For arrays, the method is called on one, then another array is provided as the argument to concat, which is added to the end of the first array. It returns a new array and does not mutate either of the original arrays. Here's an example: */
 
+//example 11
+function nonMutatingConcat(original, attach) {
+    // Only change code below this line
+  return original.concat(attach)
+  
+    // Only change code above this line
+  }
+  
+  const first = [1, 2, 3];
+  const second = [4, 5];
+  nonMutatingConcat(first, second);
 
 
 
