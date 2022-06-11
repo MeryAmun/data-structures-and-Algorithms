@@ -382,6 +382,10 @@ const watchList = [
 // The global variable
 const s = [23, 65, 98, 5];
 
+let callBackSt = ((item) => {
+    return item
+    })
+
 Array.prototype.myMap = function(callback) {
   const newArray = [];
   // Only change code below this line
@@ -417,6 +421,51 @@ const mapList = watchList.map((movie) => (
    
     const filteredList = mapList.filter(({rating}) => rating >= 8.0)
    console.log(JSON.stringify(filteredList) )
+
+
+
+/**      
+ * Implement the filter Method on a Prototype
+You might learn a lot about the filter method if you implement your own version of it. It is recommended you use a for loop or Array.prototype.forEach().
+
+Write your own Array.prototype.myFilter(), which should behave exactly like Array.prototype.filter(). You should not use the built-in filter method. The Array instance can be accessed in the myFilter method using this.
+ */
+
+
+
+// The global variable
+const sFilter = [23, 65, 98, 5];
+let callBackFil = ((item) => item % 2 === 1 (
+  
+))
+
+Array.prototype.myFilter = function(callback) {
+  // Only change code below this line
+  const newArray = [];
+  for(let i = 0; i < this.length; i++){
+   if(callback(this[i]) % 2 === 1)
+    newArray.push(this[i])
+  }
+  // Only change code above this line
+  return newArray;
+};
+
+const new_sFilter = sFilter.myFilter(function(item) {
+  return item % 2 === 1;
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
