@@ -550,6 +550,35 @@ const squareList = arr => {
   const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
   console.log(squaredIntegers);
 
+/*
+The sort method sorts the elements of an array according to the callback function.
+
+For example:
+
+
+
+
+*/
+
+function ascendingOrder(arr) {
+    return arr.sort(function(a, b) {
+      return a - b;
+    });
+  }
+  
+  ascendingOrder([1, 5, 2, 3, 4]);//returns [ 1,2,3,4,5];
+
+  function descendingOrder(arr) {
+    return arr.sort(function(a, b) {
+      return b - a;
+    });
+  }
+  
+  descendingOrder([1, 5, 2, 3, 4]);//returns [5, 4, 3, 2, 1]
+
+
+
+
 /* 
 
  Exercise seven
