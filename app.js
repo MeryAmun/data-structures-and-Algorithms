@@ -577,7 +577,28 @@ function ascendingOrder(arr) {
   descendingOrder([1, 5, 2, 3, 4]);//returns [5, 4, 3, 2, 1]
 
 
+  function alphabeticalOrder(arr) {
+    // Only change code below this line
+  
+  let sortedArr = arr.sort(function(a, b){
+  return  a === b ? 0 : a < b ? -1 : 1;
+  })
+    return sortedArr
+    // Only change code above this line
+  }
+  
+  console.log(alphabeticalOrder(["a", "d", "c", "a", "z", "g"]));
 
+
+  function reverseAlphabeticalOrder(arr) {
+    // Add your code below this line
+    return arr.sort(function(a, b) {
+      return a === b ? 0 : a < b ? 1 : -1;
+    });
+    // Add your code above this line
+  }
+  reverseAlphabeticalOrder(["l", "h", "z", "b", "s"]);
+  // Returns ['z', 's', 'l', 'h', 'b']
 
 /* 
 
