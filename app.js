@@ -721,23 +721,19 @@ function checkAge(age) {
   //solution one
   let alphaStr =  "The sunset sets at twelve o' clock.";
 let alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-let regex = /[a-z]/
+
 
   function alphabetPosition(){
       let alphaArr = alphaStr.toLowerCase().split('')
       let l = alphaArr.length;
-      let m = alphabet.length;
-    let alphaPosition = [];
-
+      let newStr = '';
       for(let i = 0; i < l; i++){
-          for(let j = 0; j < m; j++){
-if(alphaArr[i] === alphabet[j]){
-alphaPosition = Number(alphabet.indexOf(alphabet[j])) + 1
+          newStr = alphaArr.map((letter) => alphabet.indexOf(letter) + 1)
 
-} }
+console.log(newStr.join(' '))
     }
 
-     return alphaPosition
+     return newStr.join(' ')
  
   }
-   alphabetPosition("The sunset sets at twelve o'clock.")
+   alphabetPosition("The sunset sets at twelve o'clock.");
