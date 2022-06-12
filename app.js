@@ -690,6 +690,14 @@ The output should not have any spaces
 
 */
 
+
+/* 
+Use the every Method to Check that Every Element in an Array Meets a Criteria
+The every method works with arrays to check if every element passes a particular test. It returns a Boolean value - true if all values meet the criteria, false if not.
+
+For example, the following code would check if every element in the numbers array is less than 10:
+
+*/
 // Only change code below this line
 function urlSlug(title) {
     let toLower = title.toLowerCase()
@@ -700,30 +708,36 @@ function urlSlug(title) {
     // Only change code above this line
     urlSlug(" Winter Is  Coming");
 
+
+    const ages = [32, 33, 16, 40];
+
+ages.every(checkAge)
+
+function checkAge(age) {
+  return age > 18;
+}
+
+//Given a string, replace every letter with its number in the alphabet
   //solution one
   let alphaStr =  "The sunset sets at twelve o' clock.";
-let alphabet = ['a','b','c','d','e','f,g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+let alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+let regex = /[a-z]/
 
   function alphabetPosition(){
-      let alphaArr = alphaStr.split('')
+      let alphaArr = alphaStr.toLowerCase().split('')
       let l = alphaArr.length;
       let m = alphabet.length;
-      let newAlArr = [];
-      let numStr ;
+    let alphaPosition = [];
 
-      //console.log(alphaArr)
-      for(let i = 0; i < l; i+1){
+      for(let i = 0; i < l; i++){
           for(let j = 0; j < m; j++){
-if(alphaArr[i].toLowerCase() === alphabet[j]){
-   //console.log(alphabet.indexOf(alphabet[j]) + 1 )
-  // newAlArr.push(alphaArr[i].slice(0));
-   //console.log(newAlArr)
-   //newAlArr = alphaArr[i]
-   //console.log(typeof newAlArr)
-   console.log(alphabet[j].length)
-}
-          }
-      }
+if(alphaArr[i] === alphabet[j]){
+alphaPosition = Number(alphabet.indexOf(alphabet[j])) + 1
 
+} }
+    }
+
+     return alphaPosition
+ 
   }
-//   alphabetPosition("The sunset sets at twelve o'clock.")
+   alphabetPosition("The sunset sets at twelve o'clock.")
