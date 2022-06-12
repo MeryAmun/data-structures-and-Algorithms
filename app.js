@@ -652,6 +652,27 @@ If anything in the text is not a letter, ignore it and dont return it
 
 e.g testStr = "The sunset sets at twelve o'clock."
    */
+
+/* 
+
+Use the join method (among others) inside the sentensify function to make a sentence from the words in the string str. The function should return a string. For example, I-like-Star-Wars would be converted to I like Star Wars. For this challenge, do not use the replace method.
+
+*/
+
+
+function sentensify(str) {
+    // Only change code below this line
+  //let newStr2 = str.replace(/(-)+/g, ' ')
+  
+  return   str.split(/\W/).join(" ")
+    // Only change code above this line
+  }
+  
+  console.log(sentensify("May-the-force-be-with-you"));
+
+
+
+
   //solution one
   let alphaStr =  "The sunset sets at twelve o' clock.";
 let alphabet = ['a','b','c','d','e','f,g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
