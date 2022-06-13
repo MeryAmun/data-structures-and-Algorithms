@@ -871,10 +871,11 @@ The sum of the members of a finite arithmetic progression is called an arithmeti
 {\displaystyle 2+5+8+11+14}2 + 5 + 8 + 11 + 14
 This sum can be found quickly by taking the number n of terms being added (here 5), multiplying by the sum of the first and last number in the progression (here 2 + 14 = 16), and dividing by 2:
 
-{\displaystyle {\frac {n(a_{1}+a_{n})}{2}}}\frac{n(a_1 + a_n)}{2}
+{n(a_{1}+a_{n})}{2}}}\frac{n(a_1 + a_n)}{2}
 In the case above, this gives the equation:
 
- 2+5+8+11+14= 5(2+14) / 2 = 5 * 16 / 2 = 40 
+ 2+5+8+11+14 = >
+ 5(2+14) / 2 => 5 * 16 / 2 = 40 
   
   */
 
@@ -905,3 +906,39 @@ const sumAll = arr => {
   return newSumAll
   }
   console.log(sumAll([10, 5]))
+
+  //Compare two arrays and return a new array with any items only found in one of the two given arrays, but not both. In other words, return the symmetric difference of the two arrays.
+
+//Note: You can return the array with its elements in any order.
+
+function diffArray(arr1, arr2) {
+    const newArr = [];
+  
+    function onlyInFirst(first, second) {
+      // Looping through an array to find elements that don't exist in another array
+      for (let i = 0; i < first.length; i++) {
+        if (second.indexOf(first[i]) === -1) {
+          // Pushing the elements unique to first to newArr
+          newArr.push(first[i]);
+        }
+      }
+    }
+  
+    onlyInFirst(arr1, arr2);
+    onlyInFirst(arr2, arr1);
+  
+    return newArr;
+  }
+  
+  console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]))
+
+  function longestString() {
+    var longest = '';
+    for (var i=0; i < arguments.length; i++) {
+      if (arguments[i].length > longest.length) {
+        longest = arguments[i];
+      }
+    }
+    return longest;
+  }
+  console.log(longestString('You', 'will', 'be', 'provided', 'with', 'an', 'initial','array'))
