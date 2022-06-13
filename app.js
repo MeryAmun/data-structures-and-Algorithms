@@ -857,3 +857,38 @@ function add(x) {
   }
   
   add(10)(20)(30);
+
+  /* 
+  We'll pass you an array of two numbers. Return the sum of those two numbers plus the sum of all the numbers between them. The lowest number will not always come first.
+
+For example, sumAll([4,1]) should return 10 because sum of all the numbers between 1 and 4 (both inclusive) is 10.
+
+
+Math.min() and Math.max() can be used to find the lowest or highest value in a list of arguments:
+
+The sum of the members of a finite arithmetic progression is called an arithmetic series. For example, consider the sum:
+
+{\displaystyle 2+5+8+11+14}2 + 5 + 8 + 11 + 14
+This sum can be found quickly by taking the number n of terms being added (here 5), multiplying by the sum of the first and last number in the progression (here 2 + 14 = 16), and dividing by 2:
+
+{\displaystyle {\frac {n(a_{1}+a_{n})}{2}}}\frac{n(a_1 + a_n)}{2}
+In the case above, this gives the equation:
+
+ 2+5+8+11+14= 5(2+14) / 2 = 5 * 16 / 2 = 40 
+  
+  */
+
+//solution 1
+const sumAll = arr => {
+    // Buckle up everything to one!
+    const startNum = arr[0];
+    const endNum = arr[1];
+  
+    // Get the count of numbers between the two numbers by subtracting them and add 1 to the absolute value.
+    // ex. There are |1-4| + 1 = 4, (1, 2, 3, 4), 4 numbers between 1 and 4.
+    const numCount = Math.abs(startNum - endNum) + 1;
+  
+    // Using Arithmetic Progression summing formula
+    const sum = ((startNum + endNum) * numCount) / 2;
+    return sum;
+  };
