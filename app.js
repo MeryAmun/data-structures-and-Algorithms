@@ -942,3 +942,41 @@ function diffArray(arr1, arr2) {
     return longest;
   }
   console.log(longestString('You', 'will', 'be', 'provided', 'with', 'an', 'initial','array'))
+
+  /*
+  
+  Seek and Destroy
+You will be provided with an initial array (the first argument in the destroyer function), followed by one or more arguments. Remove all elements from the initial array that are of the same value as these arguments.
+
+Note: You have to use the arguments object.
+  
+  */
+ //solution 1
+function destroyer(arr) {
+    const toBeDestroyed = Array.from(arguments).slice();
+    let destroyedArr = []
+   destroyedArr = arr.filter((item) => !toBeDestroyed.includes(item) )
+      
+    return destroyedArr;
+  }
+  
+
+  //solution 2
+  console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3))
+  function destroyer(arr) {
+    const valsToRemove = Object.values(arguments).slice(1);
+    const filteredArray = [];
+  
+    for (let i = 0; i < arr.length; i++) {
+      let removeElement = false;
+      for (let j = 0; j < valsToRemove.length; j++) {
+        if (arr[i] === valsToRemove[j]) {
+          removeElement = true;
+        }
+      }
+      if (!removeElement) {
+        filteredArray.push(arr[i]);
+      }
+    }
+    return filteredArray;
+  }
