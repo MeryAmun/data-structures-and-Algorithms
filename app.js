@@ -892,3 +892,16 @@ const sumAll = arr => {
     const sum = ((startNum + endNum) * numCount) / 2;
     return sum;
   };
+
+  //solution 2
+  function sumAll(arr) {
+
+    let newSumAll = 0;
+  let min = Math.min(arr[0], arr[1]);
+  let max = Math.max(arr[0], arr[1]);
+  for(let i = min; min <= max; min++){
+  newSumAll += min
+  }
+  return newSumAll
+  }
+  console.log(sumAll([10, 5]))
