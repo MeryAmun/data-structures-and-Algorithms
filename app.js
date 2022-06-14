@@ -1010,3 +1010,53 @@ function destroyer(arr) {
 
 
 console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }))
+
+
+//Spinal Tap Case
+//Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
+
+function spinalCase(str) {
+  
+    return str.split(/\s|_|(?=[A-Z])/)
+  .join('-').toLowerCase()
+  
+}
+
+spinalCase('This Is Spinal Tap');
+
+//exercise 34
+
+// Pig Latin is a way of altering English Words. The rules are as follows:
+
+// - If a word begins with a consonant, take the first consonant or consonant cluster, move it to the end of the word, and add ay to it.
+
+// - If a word begins with a vowel, just add way at the end.
+
+// Translate the provided string to Pig Latin. Input strings are guaranteed to be English words in all lowercase.
+
+function translatePigLatin(str) {
+    let newStr;
+    let nextSubStr;
+    let finalStr;
+    let vowelRegex = /[aeiou]/gi;
+    let consoRegex = /[^aeiou]+/gi;
+    
+   for( let i = 0; i < str.length; i++){
+     if(str[i].match(vowelRegex)){
+    return  newStr = str.concat('way')
+     }else if(str.match(consoRegex)){
+       let newSubStr = str.match(consoRegex)
+       
+       nextSubStr = str.slice(0, newSubStr[0].length)
+       
+  return finalStr = str.split('')
+   .splice(newSubStr[0].length)
+   .join('').concat(nextSubStr).concat('ay');
+  
+  
+     }
+   }
+    return newStr;
+  }
+  
+  console.log(translatePigLatin("phsychology"));
