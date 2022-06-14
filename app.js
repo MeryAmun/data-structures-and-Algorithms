@@ -960,11 +960,11 @@ function destroyer(arr) {
     return destroyedArr;
   }
   
-
-  //solution 2
   console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3))
+  //solution 2
+ 
   function destroyer(arr) {
-    const valsToRemove = Object.values(arguments).slice(1);
+    const valsToRemove = Object.values(arguments).slice();
     const filteredArray = [];
   
     for (let i = 0; i < arr.length; i++) {
@@ -980,3 +980,33 @@ function destroyer(arr) {
     }
     return filteredArray;
   }
+  console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
+
+
+//   Make a function that looks through an array of objects (first argument) and returns an array of all objects that have matching name and value pairs (second argument). Each name and value pair of the source object has to be present in the object from the collection if it is to be included in the returned array.
+
+
+
+  function whatIsInAName(collection, source) {
+    let arr = [];
+    // Only change code below this line
+    //arr = //collection.map((item) => item.first && item.last)
+   const souceKeys = Object.keys(source);
+  
+    // filter the collection
+    return collection.filter(obj => {
+      for (let i = 0; i < souceKeys.length; i++) {
+        if (!obj.hasOwnProperty(souceKeys[i]) ||
+            obj[souceKeys[i]] !== source[souceKeys[i]]) {
+          return false;
+        }
+      }
+      return true;
+    });
+  }
+  
+  
+  console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }))
+
+
+console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }))
