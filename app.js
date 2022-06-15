@@ -1134,3 +1134,33 @@ function pairElement(str) {
    console.log(pairElement("ATCGA"));
    let basePairs = [["A","T"], ["C", "G"]];
    //the dna strand characters follow the defined other, thererfore, if the provided strand is  ATCGA, therefore the missing strands are T, A, G, C,T
+
+
+
+   //exercise 37;
+//    Missing letters
+// Find the missing letter in the passed letter range and return it.
+
+// If all letters are present in the range, return undefined.
+let letters = "abcdefghijklmnopqrstuvwxyz";
+
+
+function fearNotLetter(str) {
+  let newStr;
+  let missingLetter;
+  let n = str.length - 1;
+   let startRange = str[0];
+  let endRange = str[n];
+
+   newStr = letters.slice(letters.indexOf(letters[letters.indexOf(startRange)]), letters.indexOf(letters[letters.indexOf(endRange)]) + 1);
+   
+  for(let i = 0; i < newStr.length; i++){
+    if(!str.includes(newStr[i])){
+missingLetter = newStr[i]
+      }
+}
+
+  return missingLetter;
+}
+
+console.log(fearNotLetter("abcdefghjklmno"));
