@@ -1062,6 +1062,7 @@ function translatePigLatin(str) {
   console.log(translatePigLatin("phsychology"));
 
   /* 
+  exercise 35
   Search and Replace
 Perform a search and replace on the sentence using the arguments provided and return the new sentence.
 
@@ -1092,4 +1093,44 @@ function myReplace(str, before, after) {
     return newStr;
   }
   
-  console.log(myReplace("A quick brown fox Jumped over the lazy dog", "Jumped", "leaped"))
+  console.log(myReplace("A quick brown fox Jumped over the lazy dog", "Jumped", "leaped"));
+
+  /* 
+  exercise 36
+  Pairs of DNA strands consist of protein base pairs. Base pairs are represented by the characters AT and CG, which form building blocks of the DNA double helix.
+
+The DNA strand is missing the pairing element. Write a function to match the missing base pairs for the provided DNA strand. For each character in the provided string, find the base pair character. Return the results as a 2d array.
+
+For example, for the input GCG, return [["G", "C"], ["C","G"], ["G", "C"]]
+
+The character and its pair are paired up in an array, and all the arrays are grouped into one encapsulating array.
+  */
+function pairElement(str) {
+    let dnaStr = str.split('');
+     let firstArr = [];
+     let secondArr = [];
+     let l = dnaStr.length;
+     let m = dnaStr.length;
+       for(let i = 0; i < m; i++){
+   if(dnaStr[i] === 'A'){
+   secondArr.splice([i], 0,['A','T'])
+       }
+        if(dnaStr[i] === 'T'){
+   secondArr.splice([i], 0, ['T','A'])
+       }
+          if(dnaStr[i] === 'C'){
+   secondArr.splice([i], 0, ['C','G'])
+       }
+          if(dnaStr[i] === 'G'){
+             secondArr.splice([i], 0,['G','C']);
+       }
+       }
+       
+       
+     //finalArr = firstArr.concat(secondArr)
+     return firstArr.concat(secondArr);
+   }
+   
+   console.log(pairElement("ATCGA"));
+   let basePairs = [["A","T"], ["C", "G"]];
+   //the dna strand characters follow the defined other, thererfore, if the provided strand is  ATCGA, therefore the missing strands are T, A, G, C,T
