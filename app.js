@@ -1164,3 +1164,34 @@ missingLetter = newStr[i]
 }
 
 console.log(fearNotLetter("abcdefghjklmno"));
+
+/* 
+Write a function that takes two or more arrays and returns a new array of unique values in the order of the original provided arrays.
+
+In other words, all values present from all arrays should be included in their original order, but with no duplicates in the final array.
+
+The unique numbers should be sorted by their original order, but the final array should not be sorted in numerical order.
+
+Check the assertion tests for examples.
+*/
+
+function uniteUnique(arr) {
+  let finalArr = [];
+  let argVals = Object.values(arguments).slice();
+
+  let l = argVals.length;
+  
+  for(let i = 0; i < l; i++){
+    let m = argVals[i].length;
+    for(let j = 0; j < m; j++){
+     if(!finalArr.includes(argVals[i][j])){
+        finalArr.push(argVals[i][j])
+     }
+    }
+
+  }
+
+  return finalArr;
+}
+
+console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
