@@ -1166,6 +1166,7 @@ missingLetter = newStr[i]
 console.log(fearNotLetter("abcdefghjklmno"));
 
 /* 
+exercise 38
 Write a function that takes two or more arrays and returns a new array of unique values in the order of the original provided arrays.
 
 In other words, all values present from all arrays should be included in their original order, but with no duplicates in the final array.
@@ -1195,3 +1196,53 @@ function uniteUnique(arr) {
 }
 
 console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
+
+
+//exercise 40
+//From the HTML topic Entities;
+// Convert HTML Entities
+// Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
+
+
+let characters = ['&','<','>','"', "'" ];
+
+let entities = ['&amp;', '&lt', '&gt;', '&quot;', '&apos;'];
+let c = characters.length;
+let e = entities.length;
+let regex = /\W+/
+function convertHTML(str) {
+  let newSecondStr;
+ let secondStr = str.split('')
+  //console.log( str[0])
+ 
+ let s = secondStr.length;
+ for(let i = 0; i < s; i++){
+   let startIndex = secondStr.indexOf(secondStr[i])
+   //console.log(startIndex)
+   if(secondStr[i] === '&'){
+     
+    secondStr[i] = '&amp;';
+   }else
+    if(secondStr[i] === '<'){
+      
+    secondStr[i] = '&lt;'
+   }else
+    if(secondStr[i] === '>'){
+      
+    secondStr[i] = '&gt;';
+   }else
+    if(secondStr[i] === '"'){
+      
+    secondStr[i] = '&quot;'
+   }else
+    if(secondStr[i] === "'"){
+      
+    secondStr[i] = '&apos;'
+   }
+  
+ }
+newSecondStr = secondStr.join('');
+  return newSecondStr;
+}
+
+convertHTML("Hamburgers  < Pizza < Tacos");
