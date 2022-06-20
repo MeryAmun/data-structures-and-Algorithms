@@ -1402,3 +1402,44 @@ function dropElements(arr, func) {
 }
 
 dropElements([1, 2, 3], function(n) {return n < 3; });
+
+//solution two
+function dropElements(arr, func) {
+  let sliceIndex = arr.findIndex(func);
+  return arr.slice(sliceIndex >= 0 ? sliceIndex : arr.length);
+}
+
+// test here
+dropElements([1, 2, 3, 4], function(n) {
+  return n >= 3;
+});
+
+//Steamroller
+//Flatten a nested array. You must account for varying levels of nesting.
+
+//solution one
+function steamrollArray(arr) {
+  const flat = [].concat(...arr);
+  return flat.some(Array.isArray) ? steamrollArray(flat) : flat;
+}
+steamrollArray([1, [2], [3, [[4]]]]);
+
+//exercise two
+function steamrollArray(arr) {
+  const flattenedArray = [];
+  // Loop over array contents
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      // Recursively flatten entries that are arrays
+      //  and push into the flattenedArray
+      flattenedArray.push(...steamrollArray(arr[i]));
+    } else {
+      // Copy contents that are not arrays
+      flattenedArray.push(arr[i]);
+    }
+  }
+  return flattenedArray;
+};
+
+// test here
+steamrollArray([1, [2], [3, [[4]]]]);
