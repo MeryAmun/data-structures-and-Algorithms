@@ -1504,3 +1504,53 @@ function binaryAgent(str) {
 binaryAgent(
   "01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111"
 );
+
+/* 
+Everything Be True
+Check if the predicate (second argument) is truthy on all elements of a collection (first argument).
+In other words, you are given an array collection of objects. The predicate pre will be an object property and you need to return true if its value is truthy. Otherwise, return false.
+In JavaScript, truthy values are values that translate to true when evaluated in a Boolean context.
+Remember, you can access object properties through either dot notation or [] notation.
+*/
+
+//solution one
+function truthCheck(collection, pre) {
+  return collection.every(obj => obj[pre])
+ }
+ 
+ truthCheck([{name: "Quincy", role: "Founder", isBot: false}, {name: "Naomi", role: "", isBot: false}, {name: "Camperbot", role: "Bot", isBot: true}], "isBot");
+ //solution two
+ function truthCheck(collection, pre) {
+  let l = collection.length;
+  for(let i = 0; i < l; i++){
+  if(!collection[i][pre]){
+   return false;
+  }
+  }
+ 
+  return true;
+}
+
+truthCheck([{name: "Quincy", role: "Founder", isBot: false}, {name: "Naomi", role: "", isBot: false}, {name: "Camperbot", role: "Bot", isBot: true}], "isBot");
+
+
+/* 
+Create a function that sums two arguments together. If only one argument is provided, then return a function that expects one argument and returns the sum.
+For example, addTogether(2, 3) should return 5, and addTogether(2) should return a function.
+Calling this returned function with a single argument will then return the sum:
+
+
+*/
+
+function addTogether() {
+  const [first, second] = arguments;
+  if (typeof(first) !== "number")
+    return undefined;
+  if (second === undefined)
+    return (second) => addTogether(first, second);
+  if (typeof(second) !== "number")
+    return undefined;
+  return first + second;
+}
+
+addTogether(2,3);
