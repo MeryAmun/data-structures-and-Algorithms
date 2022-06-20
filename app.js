@@ -1303,4 +1303,50 @@ function sumPrimes(num) {
 
 sumPrimes(10);
 
-//example 2
+/* 
+Smallest Common Multiple
+Find the smallest common multiple of the provided parameters that can be evenly divided by both, as well as by all sequential numbers in the range between these parameters.
+
+The range will be an array of two numbers that will not necessarily be in numerical order.
+
+For example, if given 1 and 3, find the smallest common multiple of both 1 and 3 that is also evenly divisible by all numbers between 1 and 3. The answer here would be 6.
+*/
+
+//solution one
+// Find the SCM of a range of numbers
+function smallestCommons(arr) {
+  let primeFactors = {};
+  const [min, max] = arr.sort((a, b) => a - b);
+  for (let i = min; i <= max; i++) {
+    // Factorize number in range
+    let primes = getPrimeFactors(i);
+    for (let j in primes) {
+      // Add factor to set or update number of occurrences
+      if (!primeFactors[j] || primes[j] > primeFactors[j]) {
+        primeFactors[j] = primes[j]
+      }
+    }
+  }
+  // Build SCM from factorization
+  let multiple = 1;
+  for (let i in primeFactors) {
+    multiple *= i ** primeFactors[i]
+  }
+  return multiple;
+}
+
+// Compute prime factors of a number
+function getPrimeFactors(num) {
+  const factors = {};
+  for (let prime = 2; prime <= num; prime++) {
+    // Count occurances of factor
+    // Note that composite values will not divide num
+    while ((num % prime) === 0) {
+      factors[prime] = (factors[prime]) ? factors[prime] + 1 : 1;
+      num /= prime;
+    }
+  }
+  return factors;
+}
+
+smallestCommons([1, 5]);
