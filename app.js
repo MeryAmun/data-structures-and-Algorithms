@@ -1741,3 +1741,64 @@ Write a function which takes a ROT13 encoded string as input and returns a decod
 
 All letters will be uppercase. Do not transform any non-alphabetic character (i.e. spaces, punctuation), but do pass them on.
 */
+
+//encode cipher
+function cesar(str, amount) {
+  
+  if (amount < 0)
+    return cesar(str, amount + 26);
+  
+  // variable to store the result
+  var res = '';
+  // iterate over the string
+  for (var i = 0; i < str.length; i++) {
+    // Get the character that we are going to add
+    var c = str[i];
+    // Check if it's a letter
+    if (c.match(/[a-z]/i)) {
+      // Get the letter's code
+      var code = str.charCodeAt(i);
+      // Capital letters
+      if ((code >= 65) && (code <= 90))
+        c = String.fromCharCode(((code - 65 + amount) % 26) + 65);
+      // Lowercase letters
+      else if ((code >= 97) && (code <= 122))
+        c = String.fromCharCode(((code - 97 + amount) % 26) + 97);
+    }
+    // Add the character
+    res += c;
+  }
+  // Result
+  return res;
+};
+
+console.log(cesar("ABCD", 10))
+
+//decode ceaser cipher
+let alphStart = 'abcdefghijklm'.toUpperCase();
+let alphEnd = 'nopqrstuvwxyz'.toUpperCase()
+function rot13(str) {
+let decodedStr = '';
+let startIndex;
+let endIndex;
+
+ for(let i = 0; i < str.length; i += 1){
+  let letterToDecode = str[i];
+ startIndex = alphStart.indexOf(letterToDecode);
+endIndex = alphEnd.indexOf(letterToDecode);
+
+  if(alphStart.indexOf(letterToDecode) >= 0){
+    decodedStr += alphEnd[startIndex];
+  }else if(alphEnd.indexOf(letterToDecode) >= 0){
+ decodedStr += alphStart[endIndex]
+  }else{
+    decodedStr += letterToDecode;
+  }
+   
+
+ }
+
+  return decodedStr;
+}
+
+rot13("SERR CVMMN!");
