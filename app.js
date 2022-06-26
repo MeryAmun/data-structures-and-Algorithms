@@ -2038,3 +2038,60 @@ function frankenSplice(arr1, arr2, n) {
   }
   
   frankenSplice([1, 2, 3], [4, 5, 6], 1);
+
+  /* 
+  Falsy Bouncer
+Remove all falsy values from an array.
+Falsy values in JavaScript are false, null, 0, "", undefined, and NaN.
+Hint: Try converting each value to a Boolean.
+  */
+let falsey = [false, null, 0, "", undefined,  NaN]
+function bouncer(arr) {
+  let newArr = [];
+  for(let i = 0; i < arr.length; i++){
+   if(Boolean(arr[i])){
+     newArr.push(arr[i])
+   }
+    
+  }
+  return newArr
+}
+
+bouncer([7, "ate", "", false, 9]);
+
+
+
+/*
+Where do I Belong
+Return the lowest index at which a value (second argument) should be inserted into an array (first argument) once it has been sorted. The returned value should be a number.
+For example, getIndexToIns([1,2,3,4], 1.5) should return 1 because it is greater than 1 (index 0), but less than 2 (index 1).
+Likewise, getIndexToIns([20,3,5], 19) should return 2 because once the array has been sorted it will look like [3,5,20] and 19 is less than 20 (index 2) and greater than 5 (index 1).
+*/
+
+//solution one
+function getIndexToIns(arr, num) {
+  let indexOfNew;
+  arr.sort((function(a,b){return a - b}))
+for(let i = 0; i < arr.length; i++){
+  if(arr[i] >= num){
+    indexOfNew = i
+  }
+
+}
+  console.log(indexOfNew)
+  return indexOfNew;
+}
+
+//solution two
+
+function getIndexToIns(arr, num) {
+  let indexOfNew;
+  arr.push(num)
+  arr.sort((function(a,b){return a - b}))
+indexOfNew = arr.indexOf(num)
+
+  console.log(indexOfNew)
+  return indexOfNew;
+}
+
+getIndexToIns([20, 40, 10, 30, 50], 35);
