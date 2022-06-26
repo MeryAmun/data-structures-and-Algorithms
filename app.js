@@ -1980,3 +1980,40 @@ newStr = str
 }
 
 truncateString("A-tisket a-tasket A green and yellow basket", 8);
+
+/* 
+Create a function that looks through an array arr and returns the first element in it that passes a 'truth test'. This means that given an element x, the 'truth test' is passed if func(x) is true. If no element passes the test, return undefined.
+
+*/
+
+function findElement(arr, func) {
+  let num = 0;
+  for(let i = 0; i < arr.length; i++){
+num = arr[i]
+if(func(num)){
+return num
+}
+}
+return undefined
+}
+findElement([1, 3, 5, 8, 9, 10], num => num % 2 === 0);
+
+/* 
+Title Case a Sentence
+Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.
+For the purpose of this exercise, you should also capitalize connecting words like the and of.
+
+*/
+
+function titleCase(str) {
+  let newStr = [];
+  str = str.split(' ');
+  for(let i = 0; i < str.length; i++){
+    let firstUpper = str[i][0].toUpperCase()
+    newStr.push(str[i].replace(str[i][0], firstUpper))
+    
+  }
+  return newStr.join(' ');
+}
+
+titleCase("I'm a little tea pot");
