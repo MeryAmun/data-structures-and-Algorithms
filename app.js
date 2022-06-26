@@ -1962,3 +1962,21 @@ function largestOfFour(arr) {
 }
 
 largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+
+/* 
+Truncate a String
+Truncate a string (first argument) if it is longer than the given maximum string length (second argument). Return the truncated string with a ... ending.
+*/
+function truncateString(str, num) {
+  let newStr = ''
+  let maxStrLength = str.length - num;
+  if(maxStrLength > 0){
+  newStr = str.slice(0,num)  + '...'
+  }else{
+newStr = str
+  }
+ 
+  return newStr;
+}
+
+truncateString("A-tisket a-tasket A green and yellow basket", 8);
