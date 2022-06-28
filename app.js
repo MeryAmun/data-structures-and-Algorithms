@@ -414,15 +414,22 @@ exercise eight
 using the watchList array above
 */
 
-const mapList = watchList.map((movie) => (
-    {title:movie.Title, rating:movie.imdbRating})
-    )
    
    
-    const filteredList = mapList.filter(({rating}) => rating >= 8.0)
+    const filteredList = watchList.map((movie) => (
+      {title:movie.Title, rating:movie.imdbRating})
+      )
+    .filter(({rating}) => rating >= 8.0)
    console.log(JSON.stringify(filteredList) )
 
+//solution two
+// Only change code below this line
+const filteredList1 = watchList
+  .filter(({ imdbRating }) => imdbRating >= 8.0)
+  .map(({ Title: title, imdbRating: rating }) => ({ title, rating }));
+// Only change code above this line
 
+console.log(filteredList1);
 
 /**    
  exercise ten
@@ -510,9 +517,9 @@ The variable watchList holds an array of objects with information on several mov
 function getRating(watchList) {
     // Only change code below this line
     let averageRating = [];
-  const movies = watchList.filter((film) => film.Director === "Christopher Nolan" )
-  const christopher = movies.map((film) => Number(film.imdbRating))
-  console.log(christopher)
+    const christopher = watchList.filter((film) => film.Director === "Christopher Nolan" )
+                          .map((film) => Number(film.imdbRating))
+                 console.log(christopher)
   
   
   let lR = christopher.length;
@@ -541,8 +548,8 @@ Note: Your function should not use any kind of for or while loops or the forEach
 
 const squareList = arr => {
     // Only change code below this line
-   const positiveNums = arr.filter((num) => num > 0 && Number.isInteger(num) === true)
-   const squareArr = positiveNums.map((number) => Math.pow(number, 2)) 
+   const squareArr = arr.filter((num) => num > 0 && Number.isInteger(num) === true)
+   .map((number) => Math.pow(number, 2)) 
     return squareArr;
     // Only change code above this line
   };
@@ -700,9 +707,8 @@ For example, the following code would check if every element in the numbers arra
 */
 // Only change code below this line
 function urlSlug(title) {
-    let toLower = title.toLowerCase()
-    .trim();
-    return toLower.split(/\s+/g).join('-')
+  return title.toLowerCase()
+    .trim().split(/\s+/g).join('-')
     
     }
     // Only change code above this line
@@ -795,15 +801,11 @@ For example, the following code would check if any element in the numbers array 
   //Use the some method inside the checkPositive function to check if any element in arr is positive. The function should return a Boolean value.
   function checkPositive(arr) {
     // Only change code below this line
-    let booleanValue;
-  arr.some((currentValue) => {
-    if(currentValue > 0 ){ 
-      booleanValue = true
-      }else{
-         booleanValue = false
-      }
+   
+   arr.some((currentValue) => {
+    return currentValue > 0
+      
   })
-  return booleanValue
     // Only change code above this line
   }
   
@@ -906,6 +908,21 @@ const sumAll = arr => {
   return newSumAll
   }
   console.log(sumAll([10, 5]))
+
+  function sumAll(arr) {
+    let sum = 0
+    arr.sort(function(a,b){
+     return  a - b
+    })
+      for(let i = arr[0]; i <= arr[1]; i++){
+        sum += i
+      } 
+  console.log(arr)
+  console.log(sum)
+    return sum;
+  }
+  
+  sumAll([4, 1]);
 
   //Compare two arrays and return a new array with any items only found in one of the two given arrays, but not both. In other words, return the symmetric difference of the two arrays.
 
