@@ -979,7 +979,8 @@ Note: You have to use the arguments object.
   */
  //solution 1
 function destroyer(arr) {
-    const toBeDestroyed = Array.from(arguments).slice();
+  //let toBeDestroyed = Object.values(arguments).slice(1)
+    const toBeDestroyed = Array.from(arguments).slice(1);
     let destroyedArr = []
    destroyedArr = arr.filter((item) => !toBeDestroyed.includes(item) )
       
@@ -990,7 +991,7 @@ function destroyer(arr) {
   //solution 2
  
   function destroyer(arr) {
-    const valsToRemove = Object.values(arguments).slice();
+    const valsToRemove = Object.values(arguments).slice(1);
     const filteredArray = [];
   
     for (let i = 0; i < arr.length; i++) {
@@ -1031,6 +1032,20 @@ function destroyer(arr) {
     });
   }
   
+
+  //solution two
+  function whatIsInAName(collection, source) {
+    let arr = [];
+    // Only change code below this line
+    const sourceKeys = Object.keys(source)
+   
+   return arr = collection.filter(obj => 
+   sourceKeys.every(key => obj.hasOwnProperty(key) &&
+             obj[key] === source[key]));
+  //console.log(arr)
+    // Only change code above this line
+  
+  }
   
   console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }))
 
